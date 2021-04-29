@@ -9,12 +9,16 @@ public class AddDigits {
 
         int total = 0;
 
-        for (int i = 0; i < input.length(); i++) {
+        String trimmedInput = trimNonNumericValues(input);
 
+        for (int i = 0; i < trimmedInput.length(); i++) {
+            total += Character.getNumericValue(trimmedInput.charAt(i));
         }
 
         return total;
     }
 
-
+    public String trimNonNumericValues(String input) {
+        return input.replaceAll("[^\\d.]", "");
+    }
 }
